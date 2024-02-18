@@ -1,0 +1,56 @@
+<%- include('../Patials/Header')%>
+    <section class="mx-auto w-full max-w-7xl px-4 py-4">
+        <div class="flex flex-col justify-between items-center">
+            <div class="w-8/12  dark">
+                <div class="w-full  bg-gray-800 rounded-lg shadow-md p-6">
+                    <h2 class="text-2xl font-bold text-gray-200 mb-4">Register</h2>
+                    <form class="flex flex-col" action="addemp" method="post" id="employeeForm">
+                        <div class="flex justify-center">
+                            <input placeholder="Name" id="name"
+                                class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 w-6/12 " type="name"
+                                name="name" required>
+                            <input placeholder="Email" id="email"
+                                class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 w-6/12 ms-3" type="email"
+                                name="email" required>
+                        </div>
+                        <div class="flex justify-center">
+                            <input placeholder="password" id="password"
+                                class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 w-6/12  " type="password"
+                                name="password" required>
+                            <select class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 w-6/12 ms-3" id="post" name="post" required>
+                                <option value="Select Your Post">Select Your Post</option>
+                                <option value="Front-end Developer">Front-end Developer</option>
+                                <option value="Back-end Developer">Back-end Developer</option>
+                                <option value="UI/UX Developer">UI/UX Developer</option>
+                            </select>
+                        </div>
+                        <textarea name="address" class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 " id="address"
+                            cols="30" rows="10" required></textarea>
+                        <div>
+                            <div class="flex justify-between">
+                                <label
+                                    class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 flex items-center   w-8/12">
+                                    Gender :
+                                    <input type="radio" name="gender" value="male" id="" class="mx-3"><span>Male</span>
+                                    <div class="ms-3 flex ">
+                                        <input type="radio" name="gender" value="female" id="" class="me-3"><span>Female</span>
+                                    </div>
+                                    <div class="ms-3">
+                                        <input type="radio" name="gender" value="other" id="" class="me-3"><span>Other</span>
+                                    </div>
+                                </label>
+                                <label for="" class="bg-gray-700 text-gray-200 border-0 rounded-md p-2 mb-4 w-4/12 ms-3"> DOB :
+                                    <input type="date" name="date" id="date" class="bg-transparent" required>
+                                </label>
+                            </div>
+                        </div>
+                        <button
+                            class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150"
+                            type="submit">ADD +</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <%- include('../Patials/Footer')%>

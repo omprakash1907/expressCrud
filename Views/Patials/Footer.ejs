@@ -1,0 +1,37 @@
+
+<script>
+    document.getElementById('employeeForm').addEventListener('submit', function (event) {
+        var name = document.getElementsByName('name')[0].value.trim();
+        var email = document.getElementsByName('email')[0].value.trim();
+        var password = document.getElementsByName('password')[0].value.trim();
+        var post = document.getElementsByName('post')[0].value.trim();
+        var address = document.getElementsByName('address')[0].value.trim();
+        var gender = document.querySelector('input[name="gender"]:checked');
+        var date = document.getElementsByName('date')[0].value.trim();
+
+        var dob = new Date(date);
+        var currentYear = new Date().getFullYear();
+        var maxYear = currentYear - 14;
+
+        var emailExists = Employees.some(function(emp) {
+            return emp.email === email;
+        });
+
+        if (!name || !email || !password || post === "Select Your Post" || !address || !gender || !date) {
+            alert('Please fill in all fields');
+            event.preventDefault();
+        }else if (password.length < 6) {
+            alert('Password must be at least 6 characters long');
+            event.preventDefault();
+        } else if (dob.getFullYear() >= maxYear) {
+            alert('Date of birth must be before 2010');
+            event.preventDefault();
+        }else if (error){
+            alert('Email already exists');
+            event.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>
