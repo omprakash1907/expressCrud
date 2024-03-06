@@ -5,19 +5,14 @@ var bodyParser = require('body-parser')
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
-// app.get('/', function(req,res){
-//     res.send('Hellow...')
-// })
+const { productModel } = require('./schema.js')
 
 app.set('view engine', 'ejs')
 
-var Employees = [
-    { name: 'om', email: 'om@gmail.com', post: 'Front-end Developer', password: '123456', gender: 'male', date: '2001-07-19', address: 'jaipur' },
-    { name: 'vikas', email: 'vikas@gmail.com', post: 'Back-end Developer', password: '123456', gender: 'male', date: '1996-01-15', address: 'pune' },
-    { name: 'kashyap', email: 'kashyap@gmail.com', post: 'UI/UX Developer', password: '123456', gender: 'male', date: '2002-07-21', address: 'surat' }
-]
 
-app.get('/user', function (req, res) {
+
+app.get('/user', async function (req, res) {
+    const books = await productModel.find()
     res.render('./Pages/index', { Employees: Employees })
 })
 
